@@ -1,55 +1,37 @@
 <!DOCTYPE html>
-<html lang="da">
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <title>Embed fullscreen (mobil-venlig)</title>
-  <style>
-    /* ---------------------------
-       Parent: ingen horisontal scroll
-       --------------------------- */
-    html, body {
-      margin: 0;
-      padding: 0;
-      width: 100%;
-      height: 100%;
-      overflow-x: hidden;            /* Ingen horizontal scrollbar */
-      overflow-y: auto;              /* Normal vertical scrolling */
-      -webkit-overflow-scrolling: touch; /* glidende scroll på iOS */
-      touch-action: pan-y;           /* Gør kun vertical panning mulig */
-      overscroll-behavior-x: contain;/* forhindrer side-swipe */
-      box-sizing: border-box;
-    }
-
-    /* containeren holder iframe og forhindrer overflow */
-    .iframe-container {
-      width: 100%;
-      min-height: 100vh;
-      box-sizing: border-box;
-      position: relative;
-    }
-
-    /* ---------------------------
-       iFrame: fylder i bredden, tillader vertical scroll
-       --------------------------- */
-    iframe {
-      width: 100%;            /* brug % frem for 100vw for at undgå vw-bugs */
-      max-width: 100%;
-      height: 100vh;          /* højden på viewport så man kan scrolle inde i iframe */
-      border: 0;
-      display: block;
-      overflow-y: auto;       /* nogle browsere respekterer dette */
-      -webkit-overflow-scrolling: touch;
-    }
-
-    /* debugging helper — fjerner igen når OK */
-    /* .debug-outline * { outline: 1px solid rgba(255,0,0,0.2); } */
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bryrup Pizza & Grill</title>
+    <link rel="icon" type="image/png" href="">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+        }
+        .iframe-container {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+        }
+        iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+    </style>
 </head>
 <body>
-  <div class="iframe-container">
-    <!-- scrolling="yes" kan hjælpe i nogle ældre browsere / mobile webviews -->
-    <iframe scrolling="yes" src="https://bryrup-pizza-revamp.lovable.app/" allowfullscreen></iframe>
-  </div>
+    <div class="iframe-container">
+        <iframe src="https://bryrup-pizza-revamp.lovable.app/" allowfullscreen></iframe>
+    </div>
 </body>
 </html>
